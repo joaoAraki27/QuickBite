@@ -21,7 +21,7 @@ function Home() {
     <>
       <Waves />
       <Navbar />
-      <div className="flex items-center justify-center h-screen p-8">
+      <div className="flex flex-col items-center justify-center h-[94vh] p-8">
         <div className="flex items-center justify-between w-full max-w-6xl mt-[-10%]">
           <div className="flex-1 max-w-xl">
             <h1 className="text-5xl font-bold mb-6">Digital Menu</h1>
@@ -36,8 +36,6 @@ function Home() {
             <img src="/olaclick-menu-digital.png" alt="Main" className="w-full max-w-3xl h-auto" />
           </div>
         </div>
-        {/* Link to test navigation */}
-        <Link to="/dashboard">Go to Dashboard</Link>
       </div>
 
       {/* Modal handling */}
