@@ -4,18 +4,19 @@
   "description": "Welcome to the repository for the backend of the DokushoJo app. This project is designed to provide a restful API for managing flashcards with a serene and zen-like theme.",
   "main": "src/index.ts",
   "scripts": {
-  "compile": "tsc",
-  "build": "npm install && npm run migrate:latest && npx knex seed:run && npm run compile",
-  "start": "node dist/index.js",
-  "dev": "nodemon src/index.ts",
-  "migrate:make": "knex --knexfile ./knexfile.ts migrate:make",
-  "migrate:latest": "knex --knexfile ./knexfile.ts migrate:latest",
-  "migrate:rollback": "knex --knexfile ./knexfile.ts migrate:rollback",
-  "seed-data": "knex seed:run --knexfile ./knexfile.ts"
-},
+    "compile": "tsc",
+    "build": "npm install && npm run migrate:latest && npx knex seed:run && npm run compile",
+    "start": "node dist/index.js",
+    "dev": "nodemon src/index.ts",
+    "migrate:make": "knex --knexfile ./knexfile.ts migrate:make",
+    "migrate:latest": "knex --knexfile ./knexfile.ts migrate:latest",
+    "migrate:rollback": "knex --knexfile ./knexfile.ts migrate:rollback",
+    "seed-data": "knex seed:run --knexfile ./knexfile.ts"
+  },
   "dependencies": {
     "@types/jsonwebtoken": "^9.0.6",
     "@types/node": "^22.2.0",
+    "@vercel/postgres": "^0.9.0",
     "bcrypt": "^5.1.1",
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
