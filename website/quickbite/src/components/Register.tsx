@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { FaCheckCircle} from 'react-icons/fa'; // For success and error icons
+import { FaCheckCircle} from 'react-icons/fa'; 
 
 interface RegisterProps {
   onClose: () => void;

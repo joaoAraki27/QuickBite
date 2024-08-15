@@ -2,7 +2,7 @@ import { Router } from "express";
 import * as userController from "./controllers/userController";
 import * as restaurantsController from "./controllers/restaurantsController";
 import * as categoriesController from "./controllers/categoriesController";
-import * as menuItemsControlle from "./controllers/menuItemsController";
+import * as menuItemsController from "./controllers/menuItemsController";
 import * as addressController from "./controllers/addressController";
 
 const router = Router();
@@ -32,13 +32,14 @@ router.delete("/categories/:id", categoriesController.deleteCategory);
 router.get("/categories/restaurant/:id", categoriesController.getCategoriesByRestaurantId);
 
 // Menu_Items routes
-router.get("/items", menuItemsControlle.getAllMenuItems);
-router.get("/items/:id", menuItemsControlle.getMenuItemById);
-router.post("/items", menuItemsControlle.createMenuItem);
-router.put("/items/:id", menuItemsControlle.updateMenuItem);
-router.delete("/items/:id", menuItemsControlle.deleteMenuItem);
-router.get("/items/category/:id", menuItemsControlle.getCategoriesByRestaurantId);
-router.get("/items/:id/price", menuItemsControlle.getMenuItemPriceById);
+router.get("/items", menuItemsController.getAllMenuItems);
+router.get("/items/:id", menuItemsController.getMenuItemById);
+router.post("/items", menuItemsController.createMenuItem);
+router.put("/items/:id", menuItemsController.updateMenuItem);
+router.delete("/items/:id", menuItemsController.deleteMenuItem);
+router.get("/items/category/:id", menuItemsController.getCategoriesByCategoryId);
+router.get("/items/:id/price", menuItemsController.getMenuItemPriceById);
+router.get("/items/restaurant/:id", menuItemsController.getMenuItemsByRestaurantId);
 
 // Adress controllers
 router.get("/address", addressController.getAllAddresses);

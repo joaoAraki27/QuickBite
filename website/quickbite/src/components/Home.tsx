@@ -4,7 +4,7 @@ import Waves from "./backgroundWaves";
 import Navbar from "./NavBar";
 import Modal from "./Modal";
 import Login from "./Login";
-import { Link, Route, Routes } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 
 function Home() {
   const [modalOpen, setModalOpen] = useState(false);
@@ -42,7 +42,7 @@ function Home() {
       {modalOpen && (
         <Modal closeModal={closeModal}>
           <Routes>
-            <Route path="/" element={<Login onClose={closeModal} onSwitchToRegister={() => { /* handle switch to register */ }} />} />
+            <Route path="/" element={<Login onClose={closeModal} onSwitchToRegister={() => { }} />} />
           </Routes>
         </Modal>
       )}

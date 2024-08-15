@@ -17,14 +17,24 @@ export async function seed(knex: Knex): Promise<void> {
             description: 'Assorted sashimi.',
           },
           {
+            restaurant_id: 1,
+            name: 'Tempura',
+            description: 'Lightly battered and deep-fried seafood and vegetables.',
+          },
+          {
             restaurant_id: 2,
             name: 'Ramen',
-            description: 'ramen dishes.',
+            description: 'Ramen dishes.',
           },
           {
             restaurant_id: 2,
             name: 'Sides',
-            description: 'side dishes.',
+            description: 'Side dishes.',
+          },
+          {
+            restaurant_id: 2,
+            name: 'Donburi',
+            description: 'Rice bowls with various toppings.',
           },
         ]);
-      }
+}

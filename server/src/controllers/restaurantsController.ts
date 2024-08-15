@@ -20,7 +20,7 @@ export const getAllrestaurants = (req: Request, res: Response) => {
 export const getRestaurantsById = (req: Request, res: Response) => {
   const { id } = req.params;
   knexdb("restaurants")
-    .where({ restaurants_id: id })
+    .where({ restaurant_id: id })
     .first()
     .then((restaurantsID) => {
       if (restaurantsID) {
@@ -34,10 +34,10 @@ export const getRestaurantsById = (req: Request, res: Response) => {
 
 //CREATE NEW RESTAURANTS
 export const createRestaurants = (req: Request, res: Response) => {
-  const { user_id, name, logo_url, phone_number, line_id, address } = req.body;
+  const {  owner_id, name, logo_url, phone_number, line_id, address } = req.body;
 
-   if (!user_id) {
-    return res.status(400).json({ error: "User ID is required" });
+   if (!owner_id) {
+    return res.status(400).json({ error: "Owner ID is required" });
   }
 
   knexdb("restaurants")

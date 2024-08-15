@@ -11,6 +11,7 @@ const knexdb = knex(config);
 
 interface MenuItem {
     item_id: number;
+    restaurant_id: number;
     category_id: number;
     name: string;
     description: string;
@@ -44,7 +45,7 @@ export const  getMenuItemById = (req: Request, res: Response) => {
 
 // CREATE NEW MENU ITEM
 export const  createMenuItem  = (req: Request, res: Response) => {
-    const { category_id, name, description, price, image_url } = req.body;
+    const { category_id, category_name, name, description, price, image_url } = req.body;
 
     if (!category_id) {
         return res.status(400).json({ error: 'Category ID is required' });
@@ -87,7 +88,7 @@ export const deleteMenuItem = (req: Request, res: Response) => {
 }
 
 // GET MENU ITEMS BY CATEGORY ID
-export const getCategoriesByRestaurantId = (req: Request, res: Response) => {
+export const getCategoriesByCategoryId = (req: Request, res: Response) => {
 
     const id: number = parseInt(req.params.id);
 
@@ -117,3 +118,19 @@ export const getMenuItemPriceById = (req: Request, res: Response) => {
     })
     .catch(error => res.status(500).json({ error: 'Error occurred while fetching menu item price' }));
 };
+
+// GET MENU ITEMS BY RESTAURANT ID
+export const getMenuItemsByRestaurantId = (req: Request, res: Response) => {
+
+    const id: number = parseInt(req.params.id);
+
+    knexdb<MenuItem>('menu_items').where({ restaurant_id: id })
+    .then(items =>  {
+        if(items.length > 0) {
+            res.json(items);
+        } else {
+            res.status(404).json({error:'No menu items found for this restaurant'});  
+        }
+    })
+    .catch(error => res.status(500).json({error: 'Error occurred while fetching menu items' }));
+}
